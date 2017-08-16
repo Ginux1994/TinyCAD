@@ -46,6 +46,7 @@ public:
 	// 设置材质
 	virtual void SetMaterial(int nID, int r, int g, int b) = 0;
 	// 设置相机位置
+	virtual void GetCamera(float &x, float &y, float &z) = 0;
 	virtual void SetCamera(float x, float y, float z) = 0;
 	//// 计算投影矩阵
 	virtual void SetProjMatrix(float w, float h) = 0;

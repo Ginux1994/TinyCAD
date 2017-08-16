@@ -35,9 +35,15 @@
 
 #include "..\TinyRenderEngine\defines.h"
 #include "..\TinyRenderEngine\TinyRenderInterface.h"
-
+#include <Python.h>
+#define WIN64
+#ifdef WIN64
+#pragma comment(lib, "..\\x64\\Debug\\TinyRenderEngine")
+#else
 #pragma comment(lib, "..\\Debug\\TinyRenderEngine")
+#endif
 
+#pragma comment(lib, "python27") 
 #ifdef _UNICODE
 #if defined _M_IX86
 #pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'\"")

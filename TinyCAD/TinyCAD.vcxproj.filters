@@ -78,6 +78,9 @@
     <ClInclude Include="NxComponentTree.h">
       <Filter>Form</Filter>
     </ClInclude>
+    <ClInclude Include="SphereChreateDlg.h">
+      <Filter>Form</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TinyCAD.cpp">
@@ -120,6 +123,9 @@
       <Filter>MeshBuild</Filter>
     </ClCompile>
     <ClCompile Include="NxComponentTree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereChreateDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -229,6 +235,9 @@
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\Sphere_b.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="..\..\STUDY\TinyCAD\TinyCAD\res\toolbar1.bmp">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

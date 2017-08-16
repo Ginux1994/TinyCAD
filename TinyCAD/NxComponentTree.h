@@ -26,6 +26,8 @@ public:
 	{
 		return m_pRoot;
 	}
+	// delete all
+	void DeleteAll(SNxCTreeNode* pRoot);
 private:
 	SNxCTreeNode* m_pRoot;
 };

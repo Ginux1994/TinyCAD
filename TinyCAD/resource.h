@@ -2,6 +2,9 @@
 // Microsoft Visual C++ 生成的包含文件。
 // 供 TinyCAD.rc 使用
 //
+#define IDOK2                           3
+#define IDCANCEL2                       4
+#define IDD_CREATOR_SPHERE              9
 #define IDD_ABOUTBOX                    100
 #define IDP_OLE_INIT_FAILED             100
 #define IDR_POPUP_EDIT                  119
@@ -91,6 +94,11 @@
 #define IDR_MODULE_BAR                  321
 #define IDB_SPHERE                      325
 #define IDI_ICON3                       326
+#define IDC_EDT_RADIUS                  1000
+#define IDC_EDIT2                       1001
+#define IDC_EDT_POSITION                1001
+#define IDC_STC_RADIUS                  1002
+#define IDC_STC_POSITION                1003
 #define ID_BUTTON32771                  32771
 #define ID_BUTTON32776                  32776
 #define ID_32777                        32777
@@ -100,9 +108,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        328
+#define _APS_NEXT_RESOURCE_VALUE        329
 #define _APS_NEXT_COMMAND_VALUE         32779
-#define _APS_NEXT_CONTROL_VALUE         1000
+#define _APS_NEXT_CONTROL_VALUE         1004
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

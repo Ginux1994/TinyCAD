@@ -91,6 +91,7 @@ void CFileView::UpdateComponentTree()
 {
 	SNxCTreeNode* pRoot = m_ComponentTree.GetRoot();
 	ASSERT(pRoot);
+	m_wndFileView.DeleteAllItems();
 	FillFileView(pRoot, NULL);
 	//RUNTIME_CLASS(pRoot->pData)
 	//HTREEITEM hRoot = m_wndFileView.InsertItem(_T("FakeApp ÎÄ¼þ"), 0, 0);
@@ -103,6 +104,7 @@ void CFileView::FillFileView(SNxCTreeNode* pRoot, HTREEITEM hRoot)
 		case MeshBuild_Sphere:
 		{
 			hSrc = m_wndFileView.InsertItem(_T("ÇòÌå"), 0, hRoot);
+			//m_wndFileView.SetImageList()
 			break;
 		}
 		case MeshBuild_Cube:

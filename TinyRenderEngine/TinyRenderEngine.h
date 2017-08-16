@@ -36,6 +36,7 @@ public:
 	// 
 	virtual void SetMaterial(int nID, int r, int g, int b);
 	// 
+	virtual void GetCamera(float &x, float &y, float &z);
 	virtual void SetCamera(float x, float y, float z);
 	virtual void SetProjMatrix(float w, float h);
 private:

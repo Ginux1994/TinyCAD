@@ -370,7 +370,14 @@ void CTinyRenderEngine::SetMaterial(int nID, int r, int g, int b)
 
 	m_MeshData[nID].SetMaterial(mtrl);
 }
-
+void CTinyRenderEngine::GetCamera(float &x, float &y, float &z)
+{
+	D3DXVECTOR3 pos;
+	m_camera.getPosition(&pos);
+	x = pos.x;
+	y = pos.y;
+	z = pos.z;
+}
 void CTinyRenderEngine::SetCamera(float x, float y, float z)
 {
 	if (m_pDevice)

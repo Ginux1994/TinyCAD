@@ -50,6 +50,7 @@ struct SNxVertex
 
 struct STMeshBuild_Sphere
 {
+	STMeshBuild_Sphere(){};
 	STMeshBuild_Sphere(float x, float y, float z, float Radius)
 	{
 		_x = x, _y = y, _z = z;

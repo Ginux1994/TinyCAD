@@ -31,7 +31,7 @@ protected:
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
 	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
 	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
-
+	
 // 实现
 public:
 	virtual ~CTinyCADView();
@@ -47,9 +47,13 @@ protected:
 	afx_msg void OnFilePrintPreview();
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
+	afx_msg BOOL OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
+
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnCreateSphere();
+private:
+	void GetDataFromFile();
 };
 
 #ifndef _DEBUG  // TinyCADView.cpp 中的调试版本

@@ -10,6 +10,7 @@ CNxComponentTree::CNxComponentTree()
 
 CNxComponentTree::~CNxComponentTree()
 {
+	DeleteAll(m_pRoot);
 }
 
 void CNxComponentTree::AddNextNode(SNxCTreeNode* pNext)
@@ -43,4 +44,23 @@ void CNxComponentTree::AddChildNode(SNxCTreeNode* pChild)
 SNxCTreeNode* CNxComponentTree::FindNode(int nID)
 {
 	return NULL;
+}
+
+void CNxComponentTree::DeleteAll(SNxCTreeNode* pRoot)
+{
+	if (pRoot)
+	{
+		if (pRoot->_pChild)
+		{
+			DeleteAll(pRoot->_pChild);
+		}
+
+		if (pRoot->_pNext)
+		{
+			DeleteAll(pRoot->_pNext);
+		}
+
+		delete pRoot;
+		pRoot = NULL;
+	}
 }
