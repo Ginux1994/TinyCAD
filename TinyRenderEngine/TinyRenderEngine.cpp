@@ -128,7 +128,7 @@ BOOL CTinyRenderEngine::InitialRenderEngine(int w, int h, HWND mainWin, UGP_MS_T
 	//OneTimeInit();
 	// set camera
 
-	SetCamera(0, 0, -(float)h);
+	SetCamera(0, 0, -(float)h/2.0f);
 	SetProjMatrix((float)w, (float)h);
 	//m_pDevice->SetViewport();
 	
@@ -144,7 +144,8 @@ BOOL CTinyRenderEngine::UnitialRenderEngine()
 
 void CTinyRenderEngine::SetClearColor(float r, float g, float b)
 {
-	m_Color = D3DCOLOR_COLORVALUE(r, g, b, 1.0f);
+	//D3DCOLOR_ARGB(1.0f, r, g, b);
+	m_Color = D3DCOLOR_ARGB(1, (int)r, (int)g, (int)b);
 }
 
 void CTinyRenderEngine::StartRender(BOOL bColor, BOOL bDepth, BOOL bStencil)
@@ -189,6 +190,7 @@ void CTinyRenderEngine::Render(int nID)
 	{
 		for (int i = 0; i < m_nMeshCount; i++)
 		{
+			//StartRender(1, 1, 0);
 			if (m_MeshData[i].IsSystem())
 			{
 				m_MeshData[i].DrawMeshSystem(m_pDevice);
@@ -197,11 +199,15 @@ void CTinyRenderEngine::Render(int nID)
 			{
 				m_MeshData[i].DrawMesh(m_pDevice);
 			}
-			
+			//EndRendering();
 		}
 	}
 	else
 	{
+		if (nID >= m_nMeshCount)
+		{
+			return;
+		}
 		ASSERT( (nID < m_nMeshCount) );
 		if (m_MeshData[nID].IsSystem())
 		{
@@ -287,11 +293,11 @@ void CTinyRenderEngine::CreateMesh(int &nID)
 	nID = ++sID;
 	m_nMeshCount++;
 }
-void CTinyRenderEngine::CreateVertex(int nID, SNxVertex* pVertex, int nCount)
+void CTinyRenderEngine::CreateVertex(int nID, void* pVertex, int nCount, int nType)
 {
 	ASSERT((nID < m_nMeshCount && nID >= 0));
 	// 创建指定的网格模型
-	ASSERT(m_MeshData[nID].CreateMeshData(m_pDevice, pVertex, nCount));
+	ASSERT(m_MeshData[nID].CreateMeshData(m_pDevice, pVertex, nCount, nType));
 }
 
 void CTinyRenderEngine::CreateIndice(int nID, DWORD* pIndice, int nCount)
@@ -405,6 +411,11 @@ void CTinyRenderEngine::SetProjMatrix(float w, float h)
 			0.0f,
 			1000.0f);
 		m_pDevice->SetTransform(D3DTS_PROJECTION, &proj);
-	}
-	
+	}	
+}
+
+void CTinyRenderEngine::CreateTexture(int nID, TCHAR* pFileName)
+{
+	ASSERT((nID<m_nMeshCount && nID > -1));
+	ASSERT(m_MeshData[nID].CreateTextureFromFile(m_pDevice, pFileName));
 }

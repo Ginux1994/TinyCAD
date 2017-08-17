@@ -18,6 +18,25 @@
 #endif
 
 
+SNxVertex2D* SetBackgroundVertex(CRect rc)
+{
+	SNxVertex2D* aVerBackground = new SNxVertex2D[6];
+	ULONG col = 0xffffffff;
+	aVerBackground[0] = SNxVertex2D(0.0f, 0.0f, 0.0f, 1.0f, col, 0.0f, 0.0f);
+
+	aVerBackground[1] = SNxVertex2D(rc.Width(), 0.0f, 0.0f, 1.0f, col, 1.0f, 0.0f);
+
+	aVerBackground[2] = SNxVertex2D(rc.Width(), rc.Height(), 0.0f, 1.0f, col, 1.0f, 1.0f);
+
+	aVerBackground[3] = SNxVertex2D(0.0f, 0.0f, 0.0f, 1.0f, col, 0.0f, 0.0f);
+
+	aVerBackground[4] = SNxVertex2D(rc.Width(), rc.Height(), 0.0f, 1.0f, col, 1.0f, 1.0f);
+
+	aVerBackground[5] = SNxVertex2D(0.0f, rc.Height(), 0.0f, 1.0f, col, 0.0f, 1.0f);
+
+	return aVerBackground;
+
+}
 // CTinyCADView
 
 IMPLEMENT_DYNCREATE(CTinyCADView, CView)
@@ -55,8 +74,6 @@ BOOL CTinyCADView::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO:  在此处通过修改
 	//  CREATESTRUCT cs 来修改窗口类或样式
-	
-
 	return CView::PreCreateWindow(cs);
 }
 void CTinyCADView::OnSize(UINT nType, int cx, int cy)
@@ -89,7 +106,7 @@ void CTinyCADView::OnDraw(CDC* /*pDC*/)
 void CTinyCADView::OnInitialUpdate()
 {
 	CView::OnInitialUpdate();
-	GetDataFromFile();
+	//GetDataFromFile();
 	ASSERT(m_pRender);
 	HWND hWnd = GetSafeHwnd();
 	CRect rc;
@@ -97,7 +114,15 @@ void CTinyCADView::OnInitialUpdate()
 	m_pRender->InitialRenderEngine(rc.Width(), rc.Height(), hWnd, UGP_MS_SAMPLES_4);
 	m_pRender->SetClearColor(0, 0, 0);
 	// 设置灯光
-	m_pRender->SetLight(SNxVEC3(1.0f, 1.0f, 1.0f), LIGHT_DIRECTIONAL, 255,255,255);
+	m_pRender->SetLight(SNxVEC3(0.0f, 0.0f, 1.0f), LIGHT_DIRECTIONAL, 255,255,255);
+	// 设置背景框
+	int nID = -1;
+	m_pRender->CreateMesh(nID);
+	SNxVertex2D* paVertex = SetBackgroundVertex(rc);
+	m_pRender->CreateVertex(nID, paVertex, 6, VERTEX_2D);
+
+	m_pRender->CreateTexture(nID, _T("map.jpg"));
+	m_pRender->SetMaterial(nID, 255, 255, 255);
 }
 // CTinyCADView 打印
 

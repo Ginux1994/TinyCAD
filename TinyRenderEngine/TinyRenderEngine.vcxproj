@@ -148,10 +148,12 @@
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="defines.h" />
+    <ClInclude Include="MeshBuild_Sphere.h" />
     <ClInclude Include="MeshData.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="structs.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextureControl.h" />
     <ClInclude Include="TinyRenderEngine.h" />
     <ClInclude Include="TinyRenderInterface.h" />
   </ItemGroup>
@@ -171,6 +173,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="MeshBuild_Sphere.cpp" />
     <ClCompile Include="MeshData.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -178,6 +181,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TextureControl.cpp" />
     <ClCompile Include="TinyRenderEngine.cpp" />
     <ClCompile Include="TinyRenderInterface.cpp" />
   </ItemGroup>

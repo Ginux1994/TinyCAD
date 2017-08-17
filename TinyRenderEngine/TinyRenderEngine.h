@@ -4,7 +4,7 @@
 #include "TinyRenderInterface.h"
 #include "camera.h"
 #include "MeshData.h"
-
+#include "TextureControl.h"
 class CTinyRenderEngine : public CRenderInterface
 {
 public:
@@ -25,19 +25,24 @@ public:
 	virtual void EndRendering();
 	// 创建模型
 	virtual void CreateMesh(int &nID);
-	// 创建顶点
-	virtual void CreateVertex(int nID, SNxVertex* pVertex, int nCount);
+	// 创建顶点3D
+	virtual void CreateVertex(int nID, void* pVertex, int nCount, int nType);
 	// 创建索引
 	virtual void CreateIndice(int nID, DWORD* pIndice, int nCount);
 
 	virtual void CreateModuleFromSystem(int nID, void* pParam, MESH_TYPE nType);
 	// 设置光照
 	virtual void SetLight(SNxVEC3 dir, LIGHT_TYPE nType, int r, int g, int b);
+
+	// 设置纹理
+	virtual void CreateTexture(int nID, TCHAR* pFileName);
 	// 
 	virtual void SetMaterial(int nID, int r, int g, int b);
 	// 
 	virtual void GetCamera(float &x, float &y, float &z);
+
 	virtual void SetCamera(float x, float y, float z);
+
 	virtual void SetProjMatrix(float w, float h);
 private:
 	HWND				m_hMainWnd;
@@ -48,11 +53,14 @@ private:
 	// 宽高
 	int					m_screenWidth;
 	int					m_screenHeight;
-	// 摄像机
+	// 摄像机控制
 	Camera				m_camera;
-	// 网格数据
+	// 网格模型管理
 	CMeshData*			m_MeshData;
+
 	int					m_nMeshCount;
+	// 纹理管理
+	CTextureControl		m_TextureControl;
 };
 
 #endif

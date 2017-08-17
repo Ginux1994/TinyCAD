@@ -19,6 +19,12 @@
     <Filter Include="MeshData">
       <UniqueIdentifier>{87a3ef3e-9bdf-4bb4-bb56-0a38629e0e62}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TextureControl">
+      <UniqueIdentifier>{c92694df-6763-4a0c-91f8-e8c82b8d21ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshBuilder">
+      <UniqueIdentifier>{d54ba792-0187-40c5-a9b8-52da599c1b5d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -48,6 +54,12 @@
     <ClInclude Include="structs.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="TextureControl.h">
+      <Filter>TextureControl</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshBuild_Sphere.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -67,6 +79,12 @@
     </ClCompile>
     <ClCompile Include="TinyRenderInterface.cpp">
       <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureControl.cpp">
+      <Filter>TextureControl</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshBuild_Sphere.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

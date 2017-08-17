@@ -33,7 +33,7 @@ public:
 	// 创建一个网格
 	virtual void CreateMesh(int &nID) = 0;
 	// 设置顶点
-	virtual void CreateVertex(int nID, SNxVertex* pVertex, int nCount) = 0;
+	virtual void CreateVertex(int nID, void* pVertex, int nCount, int nType) = 0;
 	// 创建索引
 	virtual void CreateIndice(int nID, DWORD* pIndice, int nCount) = 0;
 
@@ -45,6 +45,7 @@ public:
 
 	// 设置材质
 	virtual void SetMaterial(int nID, int r, int g, int b) = 0;
+	virtual void CreateTexture(int nID, TCHAR* pFileName) = 0;
 	// 设置相机位置
 	virtual void GetCamera(float &x, float &y, float &z) = 0;
 	virtual void SetCamera(float x, float y, float z) = 0;
